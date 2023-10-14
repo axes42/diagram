@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!-- 05-10-2023 -->
+<!-- V1.1 ******** -->
+<meta charset = "utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang = "fr">
+    <head>
+      <title>Diagramm LLA</title>
+      <link rel="stylesheet" media="screen" href="canevas.css" type="text/css">
+      <script type="text/javascript" src="canevasV2.js"> </script>
+      <script type="text/javascript" src="gestiondiagram.js"> </script>
+      <script type="text/javascript" src="gestionIF.js"> </script>
+      <script type="text/javascript" src="gestionDB.js"> </script>
+      <script type="text/javascript" src="gestionDIV.js"> </script>
+      <script type="text/javascript" src="gestionLangue.js"> </script>
+      <script type="text/javascript" src="gestionFile.js"> </script>
+      <script type="text/javascript" src="gestionAjax.js"> </script>
+      <script type="text/javascript" src="gestionAjaxrf.js"> </script>
+      <script type="text/javascript" src="gestionAjaxWF.js"> </script>
+    </head>
+    <body>
+        <header id="entete_page1" class="entete"> Chart </header>
+        <div class="drapeaux_lla"> <img id="drapeau_F" src="D_francais.png" alt="Francais" ></div>
+        <div class="drapeaux_lla"> <img id="drapeau_A" src="D_anglais.png" alt="Anglais" ></div>
+        <button id="essai_task" >About </button>
+        <button id="Help" >help </button>
+        <div class="dessin_lla">
+            <img id="image_L1" src="image_lla_V1.PNG" alt="dessin LLA" >
+        </div>
+        <p> <label id="text1" class="message">today's date </label> <input type="text" id="date_jour" value="" size="14"> </p>
+        <p> <label id="text2" class="message">Project start</label> <input type="date" id="start_date_project" name="trip-start" value="2023-06-29" min="01-01-2023" max="31-12-2043" > </p>
+        <p> <button id="newproject" >new project</button> </p>
+        <p> <label id="text3"  class="message">Name project  </label><input type="text" id="file_name_db" value="Example" size="14"> </p>
+        <p>
+            <button id="write_db"   >save datas</button>
+            <button id="read_db"    >read datas</button>
+            <button id="display_datas">display datas</button>
+        </p>
+        <p>
+            <input type="checkbox" id="Choicerows" name="contact" value="" checked>
+            <label id="text4" class="message" for="Choicerows">row display</label>
+            <input type="checkbox" id="Choicecol" name="contact" value="" checked>
+            <label id="text5" class="message" for="Choicecol">column display</label>
+        </p>
+        <p>
+            <input type="checkbox" id="traceweekend" name="contact" value="" checked>
+            <label id="text16" class="message" for="traceweekend">displaying weekend</label>
+            <input type="checkbox" id="tracesemaine" name="contact" value="" >
+            <label id="text17" class="message" for="tracesemaine">displaying works days</label>
+        </p>
+        <p>
+            <input type="color" id="colorweekend" class="color_days" value="gray" >
+            <label id="text18" class="message" for="colorweekend">color weekend</label>
+            <input type="color" id="colorsemaine" class="color_days" value="#dbb20d" >
+            <label id="text19" class="message" for="colorsemaine">color works days</label>
+        </p>
+        <p> <label id="text6" class="message"> width name task </label><input type="number" id="w_task" value="245" size="5"></p>
+        <p> <label id="text7" class="message">letter size task </label><input type="number" id="l_size" value="14" size="5"></p>
+        <p> <label id="text8" class="message">gap columns </label><input type="number" id="g_columns"  value="11"  size="5"></p>
+        <p> <label id="text9" class="message">gap rows </label><input type="number" id="g_rows" value="27" size="5"></p>
+        <p> <label id="text20" >Days work/week </label><input type="number" id="nbr_jour_w" value="5" size="5" min="5" max="7" ></p>
+        <!-- ========= barre de progression =========== -->
+
+        <div id="pwidget">
+            <div id="progressbar">
+                <div id="indicator"></div>
+            </div>
+            <div id="progressnum">0</div>
+        </div>
+        <!--<div id="dialogoverlay"></div> -->
+        <div id="dialogbox" class="slit-in-vertical"><div><div id="dialogboxhead"></div><div id="dialogboxbody"></div><div id="dialogboxfoot"></div></div></div>
+
+        <label> <input type="text" id="message1" value="" size="100"> </label></p>
+        <label> <input type="text" id="message2" value="" size="100"> </label></p>
+        <button id="essai_file" >lire fichier texte </button>
+        <input type="file" name="inputfile" id="inputfile" accept=".txt, .csv" <br>
+        <pre id="output"></pre>
+        <pre id="output2"></pre>
+        <p> <button id="Sauvefichier" >Save / server</button> </p>
+        <p> <button id="lecturefichier">Load / server</button> </p>
+        <p> <button id="AbortFonctionAjax">Abort fct save/load </button> </p>
+        <div id="entete_iframe" > Set tasks </div>
+
+        <canvas class="diagramme" id = "schema" height = "500" width = "1500" style="border:1px solid">
+            <p>Votre navigateur ne supporte pas la balise canvas</p>
+        </canvas>
+        <!-- ========= creation page datas =========== -->
+          <iframe title="myFrame1" id="page2" src="canevas2.html" name="iframe_datas" hidden="hidden"></iframe>
+     </body>
+</html>
